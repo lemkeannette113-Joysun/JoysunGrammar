@@ -1,24 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-brutal: "Anton", sans-serif;
 
-  --color-brand-primary: #4F46E5;
+  --color-brand-primary: #6366F1;
   --color-brand-secondary: #10B981;
   --color-brand-accent: #F59E0B;
+  
+  --color-neon-pink: #FF00FF;
+  --color-neon-blue: #00FFFF;
+  --color-neon-green: #00FF00;
+  --color-neon-yellow: #FFFF00;
 }
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    @apply bg-[#0F172A] text-slate-100 font-sans antialiased;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
   }
 }
 
 .glass-card {
-  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+}
+
+.brutal-card {
+  @apply bg-white text-slate-900 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+}
+
+.btn-brutal {
+  @apply px-6 py-3 bg-white text-slate-900 border-4 border-black font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:translate-x-0 disabled:translate-y-0 disabled:shadow-none;
 }
 
 .btn-primary {
@@ -27,4 +43,8 @@
 
 .btn-secondary {
   @apply px-6 py-3 bg-white text-slate-700 border border-slate-200 rounded-xl font-medium transition-all hover:bg-slate-50 active:scale-95;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px currentColor;
 }
