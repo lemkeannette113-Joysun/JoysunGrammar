@@ -86,13 +86,17 @@ const generateQuestions = () => {
     for (let i = 0; i < count; i++) {
       const template = pool[i % pool.length];
       const level = startLevel + Math.floor(i / (count / 3)); // 3 levels per difficulty
+      
+      // Shuffle options for each question
+      const shuffledOptions = [...template.options!].sort(() => Math.random() - 0.5);
+      
       allQuestions.push({
         ...template,
         id: `${prefix}${i + 1}`,
         difficulty,
         level: Math.min(level, startLevel + 2),
         sentence: template.sentence!,
-        options: template.options!,
+        options: shuffledOptions,
         correctAnswer: template.correctAnswer!,
         explanation: template.explanation!,
         category: template.category!
